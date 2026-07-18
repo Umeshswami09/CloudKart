@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ product.name }} | CloudKart</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">CloudKart</div>
+
+    <nav>
+
+        <a href="{% url 'home' %}">Home</a>
+
+        <a href="{% url 'products' %}">Products</a>
+
+        <a href="{% url 'categories' %}">Categories</a>
+
+        <a href="{% url 'about' %}">About</a>
+
+        <a href="{% url 'contact' %}">Contact</a>
+
+    </nav>
+
+</header>
+
+
+<div class="product-detail-container">
+
+    <div class="product-image">
+
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+    </div>
+
+    <div class="product-info">
+
+        <h1>{{ product.name }}</h1>
+
+        <p class="category">
+
+            Category :
+            <strong>{{ product.category }}</strong>
+
+        </p>
+
+        <h2 class="price">
+
+            ₹ {{ product.price }}
+
+        </h2>
+
+        <p>
+
+            {{ product.description }}
+
+        </p>
+
+        <p>
+
+            <strong>Stock :</strong>
+
+            {% if product.stock > 0 %}
+
+                ✅ In Stock
+
+            {% else %}
+
+                ❌ Out Of Stock
+
+            {% endif %}
+
+        </p>
+
+        <br>
+
+        <a href="{% url 'add_to_cart' product.id %}">
+
+            <button class="cart-btn">
+
+                Add To Cart
+
+            </button>
+
+        </a>
+
+        <a href="{% url 'checkout' %}">
+
+            <button class="login-btn">
+
+                Buy Now
+
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<section class="related-products">
+
+<h2>
+
+Related Products
+
+</h2>
+
+<div class="product-container">
+
+{% for item in related_products %}
+
+<div class="card">
+
+<img src="{{ item.image.url }}">
+
+<h3>{{ item.name }}</h3>
+
+<p>
+
+₹ {{ item.price }}
+
+</p>
+
+<a href="{% url 'product_detail' item.id %}">
+
+<button>
+
+View Details
+
+</button>
+
+</a>
+
+</div>
+
+{% empty %}
+
+<p>
+
+No Related Products
+
+</p>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+</body>
+
+</html>

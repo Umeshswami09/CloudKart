@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CloudKart | Products</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<style>
+
+.page-title{
+text-align:center;
+margin:50px 0;
+font-size:45px;
+color:#0d6efd;
+}
+
+.product-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:35px;
+padding:30px;
+}
+
+.card{
+width:300px;
+background:white;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+padding:20px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:220px;
+height:220px;
+object-fit:contain;
+}
+
+.card h3{
+margin-top:15px;
+}
+
+.price{
+font-size:24px;
+color:#0d6efd;
+margin:15px 0;
+font-weight:bold;
+}
+
+.buy-btn{
+background:#0d6efd;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin:5px;
+}
+
+.buy-btn:hover{
+background:#084298;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">CloudKart</div>
+
+<nav>
+
+<a href="{% url 'home' %}">Home</a>
+
+<a href="{% url 'products' %}">Products</a>
+
+<a href="{% url 'categories' %}">Categories</a>
+
+<a href="{% url 'about' %}">About</a>
+
+<a href="{% url 'contact' %}">Contact</a>
+
+</nav>
+
+</header>
+
+<h1 class="page-title">
+
+Our Products
+
+</h1>
+
+<div class="product-container">
+
+{% for product in products %}
+
+<div class="card">
+
+<img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+<h3>{{ product.name }}</h3>
+
+<p class="price">
+
+₹ {{ product.price }}
+
+</p>
+
+<a href="{% url 'product_detail' product.id %}">
+
+<button class="buy-btn">
+
+View Details
+
+</button>
+
+</a>
+
+<a href="{% url 'add_to_cart' product.id %}">
+
+<button class="buy-btn">
+
+Add To Cart
+
+</button>
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

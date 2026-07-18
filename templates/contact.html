@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | CloudKart</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<style>
+
+.contact-container{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+}
+
+.contact-title{
+    text-align:center;
+    font-size:50px;
+    color:#0d6efd;
+}
+
+.contact-subtitle{
+    text-align:center;
+    font-size:20px;
+    color:#666;
+    margin:20px 0 50px;
+}
+
+.contact-wrapper{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.left-box,
+.right-box{
+    flex:1;
+    min-width:350px;
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.left-box h2,
+.right-box h2{
+    color:#0d6efd;
+    margin-bottom:25px;
+}
+
+.info{
+    margin:18px 0;
+    font-size:18px;
+}
+
+.info span{
+    font-weight:bold;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:18px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
+}
+
+textarea{
+    height:180px;
+    resize:none;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#084298;
+}
+
+.map{
+    margin-top:30px;
+    height:220px;
+    background:#eef4ff;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#0d6efd;
+    font-size:22px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">CloudKart</div>
+
+<nav>
+
+<a href="{% url 'home' %}">Home</a>
+
+<a href="{% url 'products' %}">Products</a>
+
+<a href="{% url 'categories' %}">Categories</a>
+
+<a href="{% url 'about' %}">About</a>
+
+<a href="{% url 'contact' %}">Contact</a>
+
+</nav>
+
+</header>
+
+<div class="contact-container">
+
+<h1 class="contact-title">
+
+Contact Us
+
+</h1>
+
+<p class="contact-subtitle">
+
+We'd love to hear from you. Feel free to contact the CloudKart team.
+
+</p>
+
+<div class="contact-wrapper">
+
+<div class="left-box">
+
+<h2>📞 Contact Information</h2>
+
+<div class="info">
+<span>📍 Address:</span><br>
+Jaipur, Rajasthan, India
+</div>
+
+<div class="info">
+<span>📧 Email:</span><br>
+support@cloudkart.com
+</div>
+
+<div class="info">
+<span>📱 Phone:</span><br>
++91 98765 43210
+</div>
+
+<div class="info">
+<span>🕒 Business Hours:</span><br>
+Mon - Sat : 9:00 AM - 6:00 PM
+</div>
+
+<div class="map">
+
+🗺 Google Map Placeholder
+
+</div>
+
+</div>
+
+<div class="right-box">
+
+<h2>✉ Send Message</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email Address">
+
+<textarea placeholder="Write your message here..."></textarea>
+
+<button>
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

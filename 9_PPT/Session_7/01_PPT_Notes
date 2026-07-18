@@ -1,0 +1,11 @@
+# Session 07
+
+## Topic
+User Registration & Admin Panel
+
+## Purpose
+
+- User Registration form ko Django User Model se connect kiya.
+- Naye users database me store hone lage.
+- Django Admin Panel configure kiya.
+- Admin website se registered users ko manage kar sakta hai.

@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories - CloudKart</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">CloudKart</div>
+
+<nav>
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'products' %}">Products</a>
+<a href="{% url 'categories' %}">Categories</a>
+<a href="{% url 'about' %}">About</a>
+<a href="{% url 'contact' %}">Contact</a>
+</nav>
+
+</header>
+
+<section class="categories">
+
+<h2>Shop By Categories</h2>
+
+<div class="category-container">
+
+<div class="category">💻 Electronics</div>
+
+<div class="category">📱 Mobiles</div>
+
+<div class="category">🎧 Headphones</div>
+
+<div class="category">⌚ Watches</div>
+
+<div class="category">👕 Fashion</div>
+
+<div class="category">📚 Books</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

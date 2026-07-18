@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | CloudKart</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef3fb;
+}
+
+header{
+    background:#0d6efd;
+    color:white;
+    padding:20px 40px;
+    text-align:center;
+}
+
+header h1{
+    font-size:32px;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.left{
+    flex:2;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.right{
+    flex:1;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    height:fit-content;
+}
+
+h2{
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+input,
+textarea,
+select{
+
+width:100%;
+padding:15px;
+margin:12px 0;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+button{
+
+width:100%;
+padding:16px;
+background:#198754;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#157347;
+
+}
+
+.summary-item{
+
+display:flex;
+justify-content:space-between;
+margin:15px 0;
+font-size:18px;
+
+}
+
+.total{
+
+font-size:24px;
+font-weight:bold;
+color:#0d6efd;
+
+}
+
+.back{
+
+display:block;
+text-align:center;
+margin-top:20px;
+text-decoration:none;
+background:#0d6efd;
+color:white;
+padding:14px;
+border-radius:8px;
+
+}
+
+.back:hover{
+
+background:#084298;
+
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🛍️ CloudKart Checkout</h1>
+
+</header>
+
+<div class="container">
+
+<div class="left">
+
+<h2>Shipping Details</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="full_name"
+placeholder="Full Name"
+required>
+
+<input
+type="text"
+name="phone"
+placeholder="Phone Number"
+required>
+
+<textarea
+name="address"
+placeholder="Full Address"
+required></textarea>
+
+<input
+type="text"
+name="city"
+placeholder="City"
+required>
+
+<select name="payment">
+
+<option>Cash On Delivery</option>
+
+<option>Online Payment</option>
+
+</select>
+
+<button type="submit">
+
+Place Order
+
+</button>
+
+</form>
+
+</div>
+
+<div class="right">
+
+<h2>Order Summary</h2>
+
+<div class="summary-item">
+
+<span>Items</span>
+
+<span>{{ cart_items|length }}</span>
+
+</div>
+
+<div class="summary-item">
+
+<span>Delivery</span>
+
+<span>FREE</span>
+
+</div>
+
+<hr><br>
+
+<div class="summary-item total">
+
+<span>Total</span>
+
+<span>₹{{ total }}</span>
+
+</div>
+
+<a href="{% url 'cart' %}" class="back">
+
+← Back to Cart
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

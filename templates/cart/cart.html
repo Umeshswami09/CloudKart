@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - CloudKart</title>
+
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+}
+
+header{
+    background:#0d6efd;
+    color:white;
+    padding:20px;
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+}
+
+h2{
+    margin-bottom:25px;
+    color:#0d6efd;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+th{
+    background:#0d6efd;
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+.remove-btn{
+    background:#dc3545;
+    color:white;
+    padding:8px 18px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.remove-btn:hover{
+    background:#b02a37;
+}
+
+.summary{
+    margin-top:30px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.summary h3{
+    font-size:30px;
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+.checkout-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 35px;
+    background:#198754;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.checkout-btn:hover{
+    background:#157347;
+}
+
+.home-btn{
+    display:inline-block;
+    margin-top:20px;
+    margin-left:10px;
+    padding:14px 35px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.home-btn:hover{
+    background:#084298;
+}
+
+.empty{
+    text-align:center;
+    background:white;
+    padding:80px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.empty h2{
+    color:#555;
+    margin-bottom:20px;
+}
+
+.shop-btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.shop-btn:hover{
+    background:#084298;
+}
+
+    </style>
+
+</head>
+<body>
+
+<header>
+
+🛒 CloudKart Shopping Cart
+
+</header>
+
+<div class="container">
+
+{% if cart_items %}
+
+<h2>Your Shopping Cart</h2>
+
+<table>
+
+<tr>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
+    <th>Action</th>
+</tr>
+
+{% for item in cart_items %}
+
+<tr>
+
+<td>{{ item.product.name }}</td>
+
+<td>₹{{ item.product.price }}</td>
+
+<td>{{ item.quantity }}</td>
+
+<td>₹{{ item.product.price|floatformat:2 }}</td>
+
+<td>
+<a class="remove-btn"
+href="{% url 'remove_from_cart' item.id %}">
+Remove
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="summary">
+
+<h3>Total Amount : ₹{{ total }}</h3>
+
+<a href="{% url 'checkout' %}" class="checkout-btn">
+Proceed to Checkout
+</a>
+
+<a href="{% url 'home' %}" class="home-btn">
+Continue Shopping
+</a>
+
+</div>
+
+{% else %}
+
+<div class="empty">
+
+<h2>🛒 Your Cart is Empty</h2>
+
+<br>
+
+<a href="{% url 'home' %}" class="shop-btn">
+Start Shopping
+</a>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

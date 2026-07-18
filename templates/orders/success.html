@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful | CloudKart</title>
+
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#0d6efd,#4facfe);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.success-card{
+
+background:white;
+padding:50px;
+width:550px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+animation:popup .5s ease;
+
+}
+
+@keyframes popup{
+
+0%{
+transform:scale(.7);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.check{
+
+width:120px;
+height:120px;
+background:#28a745;
+color:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:65px;
+margin:auto;
+
+}
+
+h1{
+
+margin-top:25px;
+font-size:38px;
+color:#28a745;
+
+}
+
+p{
+
+margin-top:20px;
+font-size:19px;
+color:#555;
+line-height:30px;
+
+}
+
+.order-box{
+
+margin-top:25px;
+background:#eef5ff;
+padding:20px;
+border-radius:12px;
+
+}
+
+.order-box h3{
+
+color:#0d6efd;
+margin-bottom:10px;
+
+}
+
+.btn{
+
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:#0d6efd;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-size:18px;
+font-weight:bold;
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:#084298;
+
+}
+
+.small{
+
+margin-top:15px;
+font-size:15px;
+color:gray;
+
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="success-card">
+
+<div class="check">
+
+✓
+
+</div>
+
+<h1>Order Placed Successfully!</h1>
+
+<p>
+
+Thank you for shopping with <b>CloudKart</b>.
+
+<br><br>
+
+Your order has been successfully placed and will be processed shortly.
+
+</p>
+
+<div class="order-box">
+
+<h3>📦 Order Status</h3>
+
+<p>✔ Payment Method Accepted</p>
+
+<p>✔ Order Confirmed</p>
+
+<p>🚚 Estimated Delivery : 2 - 5 Business Days</p>
+
+</div>
+
+<a href="{% url 'home' %}" class="btn">
+
+Continue Shopping
+
+</a>
+
+<div class="small">
+
+Thank you for choosing CloudKart ❤️
+
+</div>
+
+</div>
+
+</body>
+</html>

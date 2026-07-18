@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About CloudKart</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<style>
+
+.about-container{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+}
+
+.about-title{
+    text-align:center;
+    font-size:50px;
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+.about-desc{
+    text-align:center;
+    font-size:20px;
+    line-height:35px;
+    color:#555;
+    max-width:900px;
+    margin:auto;
+}
+
+.cards{
+    display:flex;
+    gap:30px;
+    margin-top:60px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    width:320px;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.aws-section{
+    margin-top:70px;
+    text-align:center;
+}
+
+.aws-section h2{
+    color:#0d6efd;
+    font-size:38px;
+    margin-bottom:40px;
+}
+
+.aws-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:25px;
+}
+
+.aws-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.aws-box:hover{
+    background:#0d6efd;
+    color:white;
+}
+
+.tech{
+    margin-top:70px;
+    text-align:center;
+}
+
+.tech h2{
+    color:#0d6efd;
+    margin-bottom:30px;
+}
+
+.tech span{
+    display:inline-block;
+    background:#eef4ff;
+    padding:12px 22px;
+    border-radius:30px;
+    margin:10px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">CloudKart</div>
+
+<nav>
+
+<a href="{% url 'home' %}">Home</a>
+
+<a href="{% url 'products' %}">Products</a>
+
+<a href="{% url 'categories' %}">Categories</a>
+
+<a href="{% url 'about' %}">About</a>
+
+<a href="{% url 'contact' %}">Contact</a>
+
+</nav>
+
+</header>
+
+<div class="about-container">
+
+<h1 class="about-title">
+
+About CloudKart
+
+</h1>
+
+<p class="about-desc">
+
+CloudKart is an Enterprise E-Commerce Platform developed using Django Framework and AWS Cloud Services.
+The project demonstrates secure authentication, shopping cart management, checkout system,
+order management and cloud deployment using modern AWS architecture.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h2>🎯 Our Mission</h2>
+
+<p>
+
+To build a secure, scalable and cloud-based e-commerce platform
+using modern AWS services and Django.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🌍 Our Vision</h2>
+
+<p>
+
+To provide users with a fast, secure and reliable online shopping
+experience powered by cloud computing.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>💡 Why CloudKart?</h2>
+
+<p>
+
+Responsive Design
+
+<br><br>
+
+Secure Login System
+
+<br><br>
+
+Shopping Cart
+
+<br><br>
+
+Order Management
+
+<br><br>
+
+Cloud Deployment
+
+</p>
+
+</div>
+
+</div>
+
+<div class="aws-section">
+
+<h2>
+
+☁ AWS Services Used
+
+</h2>
+
+<div class="aws-grid">
+
+<div class="aws-box">EC2</div>
+
+<div class="aws-box">S3</div>
+
+<div class="aws-box">RDS</div>
+
+<div class="aws-box">IAM</div>
+
+<div class="aws-box">VPC</div>
+
+<div class="aws-box">CloudFront</div>
+
+<div class="aws-box">Route 53</div>
+
+<div class="aws-box">Security Groups</div>
+
+</div>
+
+</div>
+
+<div class="tech">
+
+<h2>
+
+💻 Technologies Used
+
+</h2>
+
+<span>Python</span>
+
+<span>Django</span>
+
+<span>HTML</span>
+
+<span>CSS</span>
+
+<span>JavaScript</span>
+
+<span>MySQL</span>
+
+<span>AWS</span>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
